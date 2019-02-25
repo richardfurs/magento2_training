@@ -1,0 +1,24 @@
+<?php
+/** @var \Magebit\CategoryList\Block\CategoryList $block */
+?>
+<div>
+    <?php
+        $categoryId = $block->getId();
+        $category = $block->loadCategory($categoryId);
+        $childrenCategories = $block->loadChildren($category);
+    ?>
+    <h3>
+        <a href="<?php echo $category->getUrl(); ?>">
+            <?php echo $category->getName(); ?>
+        </a>
+    </h3>
+
+
+    <?php foreach ($childrenCategories as $childrenCategory) : ?>
+        <ul>
+            <li>
+                <a href="<?php echo $childrenCategory->getUrl() ?>"><?php echo $childrenCategory->getName() ?></a>
+            </li>
+        </ul>
+    <?php endforeach; ?>
+</div>
