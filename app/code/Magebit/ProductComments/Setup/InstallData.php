@@ -1,8 +1,5 @@
 <?php
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
+
 
 namespace Magebit\ProductComments\Setup;
 
@@ -10,9 +7,7 @@ use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 
-/**
- * @codeCoverageIgnore
- */
+
 class InstallData implements InstallDataInterface
 {
     /**
@@ -51,12 +46,13 @@ class InstallData implements InstallDataInterface
                 'frontend' => '',
                 'backend' => '',
                 'required' => false,
+                'default' => '1',
                 'sort_order' => 50,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
                 'is_used_in_grid' => false,
                 'is_visible_in_grid' => false,
                 'is_filterable_in_grid' => false,
-                'visible' => false,
+                'visible' => true,
                 'is_html_allowed_on_front' => false,
                 'visible_on_front' => false
             ]
