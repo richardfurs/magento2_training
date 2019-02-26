@@ -1,0 +1,21 @@
+<h1>Comments Allowed Product Page</h1>
+
+<?php
+
+/** @var \Magebit\ProductComments\Block\ProductComments $block */
+
+$collection = $block->getProductCollection();
+
+/** @var \Magento\Catalog\Model\Product $product */
+
+?>
+
+<?php foreach ($collection as $product) : ?>
+
+<ul>
+    <li style="list-style-type:none;">
+        <h3> <?= $product->getName(); ?> </h3>
+    </li>
+</ul>
+
+<?php endforeach ?>

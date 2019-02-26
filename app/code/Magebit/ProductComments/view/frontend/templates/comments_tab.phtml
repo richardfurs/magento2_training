@@ -1,0 +1,20 @@
+<?php
+
+$attributeValue = $block->getAttributeValue();
+
+
+if ($attributeValue == '1') : ?>
+
+    <h2>Comments</h2>
+
+    <div>
+        <form class="form" method="post">
+            <input  name="comment_name" placeholder="Your Name" type="text"/>
+            <input  name="comment_email" placeholder="Your Email" type="text"/>
+            <input  name="comment_text" placeholder="Your Text" type="text"/>
+            <input type="submit"/>
+        </form>
+    </div>
+
+<?php endif; ?>
+
