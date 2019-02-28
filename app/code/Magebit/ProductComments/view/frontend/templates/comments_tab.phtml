@@ -1,17 +1,44 @@
 <?php
+/** @var \Magebit\ProductComments\Block\CommentsTab $block */
 
 $attributeValue = $block->getAttributeValue();
 
+
+$productId = $block->getCurrentProductId();
+
+
+$comments = $block->getCollection($productId);
 
 if ($attributeValue == '1') : ?>
 
     <h2>Comments</h2>
 
     <div>
-        <form class="form" method="post">
-            <input  name="comment_name" placeholder="Your Name" type="text"/>
-            <input  name="comment_email" placeholder="Your Email" type="text"/>
-            <input  name="comment_text" placeholder="Your Text" type="text"/>
+        <?php foreach ($comments as $comment)
+        { echo $comment->getCommentText() . "<br>";}
+        ?>
+    </div>
+
+
+    <div>
+        <form class="form" method="post"
+              action="<?php echo $block->getFormAction() ?>"
+              data-mage-init='{"validation": {"errorClass": "mage-error"}}'>
+            <input  name="product_id"
+                    type="hidden"
+                    value="<?= $productId ?>"/>
+            <input  name="comment_name"
+                    placeholder="Your Name"
+                    type="text"
+                    data-validate="{required:true}"/>
+            <input  name="comment_email"
+                    placeholder="Your Email"
+                    type="text"
+                    data-validate="{required:true, 'validate-email':true}"/>
+            <input  name="comment_text"
+                    placeholder="Your Text"
+                    type="text"
+                    data-validate="{required:true}"/>
             <input type="submit"/>
         </form>
     </div>

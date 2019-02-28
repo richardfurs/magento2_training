@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magebit\Newsletter\Setup;
+namespace Magebit\ProductComments\Setup;
 
 use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -23,14 +23,12 @@ class UpgradeSchema implements UpgradeSchemaInterface
         $setup->startSetup();
         if (version_compare($context->getVersion(), '1.0.3', '<')) {
             $setup->getConnection()->addColumn(
-                $setup->getTable('newsletter_subscriber'),
-                'name',
+                $setup->getTable('comments_table'),
+                'product_id',
                 [
-                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                    'length' => 50,
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     'nullable' => false,
-                    'default' => '',
-                    'comment' => 'Name'
+                    'comment' => 'Product ID'
                 ]
             );
         }
