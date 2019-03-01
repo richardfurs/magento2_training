@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magebit_ProductComments::Magebit"
+             title="Magebit"
+             module="Magebit_ProductComments"
+             sortOrder="80"
+             resource="Magebit_ProductComments::Magebit"/>
+
+        <add id="Magebit_ProductComments::post"
+             title="Product Comments"
+             module="Magebit_ProductComments"
+             sortOrder="10"
+             action="magebit/productcomments"
+             resource="Magebit_Backend::content"
+             parent="Magebit_ProductComments::Magebit"/>
+    </menu>
+</config>

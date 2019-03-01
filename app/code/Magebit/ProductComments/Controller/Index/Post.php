@@ -49,7 +49,7 @@ class Post extends \Magento\Framework\App\Action\Action
         }
 
         // 2. GET request : Render the booking page
-        $this->_view->loadLayout();
-        $this->_view->renderLayout();
+//        $this->_view->loadLayout();
+//        $this->_view->renderLayout();
     }
 }

@@ -47,7 +47,7 @@ class UpgradeData implements UpgradeDataInterface
     {
         $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
 
-        if (version_compare($context->getVersion(), "1.0.1", "<")) {
+        if (version_compare($context->getVersion(), "1.0.0", "<")) {
 
             $eavSetup->addAttribute(
                 \Magento\Catalog\Model\Product::ENTITY,

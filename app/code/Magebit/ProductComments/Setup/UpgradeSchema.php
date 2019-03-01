@@ -21,7 +21,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
     public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         $setup->startSetup();
-        if (version_compare($context->getVersion(), '1.0.3', '<')) {
+        if (version_compare($context->getVersion(), '1.0.0', '<')) {
             $setup->getConnection()->addColumn(
                 $setup->getTable('comments_table'),
                 'product_id',
@@ -32,6 +32,20 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 ]
             );
         }
+
+        if (version_compare($context->getVersion(), '1.0.2', '<')) {
+            $setup->getConnection()->addColumn(
+                $setup->getTable('comments_table'),
+                'date',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                    'nullable' => false,
+                    'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT,
+                    'comment' => 'Date'
+                ]
+            );
+        }
+
         $setup->endSetup();
     }
 }

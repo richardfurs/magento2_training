@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                magebit_productcomments_index_listing.magebit_productcomments_index_listing_data_source
+            </item>
+        </item>
+    </argument>
+
+    <settings>
+        <spinner>magebit_productcomments_index_columns</spinner>
+        <deps>
+            <dep>
+                magebit_productcomments_index_listing.magebit_productcomments_index_listing_data_source
+            </dep>
+        </deps>
+    </settings>
+
+    <dataSource component="Magento_Ui/js/grid/provider"
+                name="magebit_productcomments_index_listing_data_source">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="magebit_productcomments_index_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>comment_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="magebit_productcomments_index_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>comment_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="comment_id">
+            <settings>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="comment_id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">comment_id</label>
+            </settings>
+        </column>
+        <column name="comment_name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Author Name</label>
+            </settings>
+        </column>
+        <column name="comment_email">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">comment_email</label>
+            </settings>
+        </column>
+        <column name="comment_text">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Comment</label>
+            </settings>
+        </column>
+        <column name="date">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Date</label>
+            </settings>
+        </column>
+
+    </columns>
+</listing>
