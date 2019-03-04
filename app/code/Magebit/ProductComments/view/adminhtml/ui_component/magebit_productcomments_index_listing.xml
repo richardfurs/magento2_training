@@ -49,29 +49,16 @@
                 <indexField>comment_id</indexField>
             </settings>
         </selectionsColumn>
-        <column name="comment_id">
+        <column name="product_id" class="Magebit\ProductComments\Ui\Component\Listing\Column\ProductName">
             <settings>
                 <filter>text</filter>
-                <sorting>asc</sorting>
-                <label translate="true">ID</label>
-            </settings>
-        </column>
-        <column name="comment_id">
-            <settings>
-                <filter>text</filter>
-                <label translate="true">comment_id</label>
+                <label translate="true">comment_id(Product Name)</label>
             </settings>
         </column>
         <column name="comment_name">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Author Name</label>
-            </settings>
-        </column>
-        <column name="comment_email">
-            <settings>
-                <filter>text</filter>
-                <label translate="true">comment_email</label>
             </settings>
         </column>
         <column name="comment_text">
@@ -83,10 +70,11 @@
         <column name="date">
             <settings>
                 <filter>text</filter>
+                <sorting>asc</sorting>
                 <label translate="true">Date</label>
             </settings>
         </column>
-        
+
 
     </columns>
 </listing>
