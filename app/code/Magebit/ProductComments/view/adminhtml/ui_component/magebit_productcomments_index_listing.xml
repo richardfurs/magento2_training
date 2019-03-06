@@ -52,7 +52,7 @@
         <column name="product_id" class="Magebit\ProductComments\Ui\Component\Listing\Column\ProductName">
             <settings>
                 <filter>text</filter>
-                <label translate="true">comment_id(Product Name)</label>
+                <label translate="true">Product Name</label>
             </settings>
         </column>
         <column name="comment_name">
@@ -65,6 +65,8 @@
             <settings>
                 <filter>text</filter>
                 <label translate="true">Comment</label>
+                <resizeEnabled>true</resizeEnabled>
+                <resizeDefaultWidth>100</resizeDefaultWidth>
             </settings>
         </column>
         <column name="date">
@@ -74,6 +76,18 @@
                 <label translate="true">Date</label>
             </settings>
         </column>
+        <column name="status">
+            <settings>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+        <actionsColumn name="action" class="Magebit\ProductComments\Ui\Component\Listing\Column\Action">
+            <settings>
+                <indexField>comment_id</indexField>
+            </settings>
+        </actionsColumn>
 
 
     </columns>

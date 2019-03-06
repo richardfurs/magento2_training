@@ -46,6 +46,19 @@ class UpgradeSchema implements UpgradeSchemaInterface
             );
         }
 
+        if (version_compare($context->getVersion(), '1.0.3', '<')) {
+            $setup->getConnection()->addColumn(
+                $setup->getTable('comments_table'),
+                'status',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_BOOLEAN,
+                    'nullable' => false,
+                    'default' => '0',
+                    'comment' => 'Status'
+                ]
+            );
+        }
+
         $setup->endSetup();
     }
 }
