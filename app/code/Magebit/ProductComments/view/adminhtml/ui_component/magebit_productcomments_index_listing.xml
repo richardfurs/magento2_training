@@ -27,7 +27,7 @@
         <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
                       name="magebit_productcomments_index_listing_data_source">
             <settings>
-                <requestFieldName>id</requestFieldName>
+                <requestFieldName>comment_id</requestFieldName>
                 <primaryFieldName>comment_id</primaryFieldName>
             </settings>
         </dataProvider>
@@ -41,6 +41,65 @@
         <columnsControls name="columns_controls"/>
         <filters name="listing_filters"/>
         <paging name="listing_paging"/>
+        <massaction name="listing_massaction">
+
+            <action name="deletecomment">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to delete comment?</message>
+                        <title translate="true">Delete comment</title>
+                    </confirm>
+                    <url path="magebit/productcomments/massdelete"/>
+                    <type>deletecomment</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+            <action name="enablestatus">
+                <settings>
+                    <confirm>
+                        <title translate="true">Enable Status</title>
+                    </confirm>
+                    <url path="magebit/productcomments/massstatusenable"/>
+                    <type>enablestatus</type>
+                    <label translate="true">Enable Status</label>
+                </settings>
+            </action>
+            <action name="disablestatus">
+                <settings>
+                    <confirm>
+                        <title translate="true">Disable Status</title>
+                    </confirm>
+                    <url path="magebit/productcomments/massstatusdisable"/>
+                    <type>disablestatus</type>
+                    <label translate="true">Disable Status</label>
+                </settings>
+            </action>
+
+            <!--<action name="changestatus">-->
+                <!--<argument name="data" xsi:type="array">-->
+                    <!--<item name="config" xsi:type="array">-->
+                        <!--<item name="type" xsi:type="string">status</item>-->
+                        <!--<item name="label" xsi:type="string" translate="true">Change status</item>-->
+                    <!--</item>-->
+                <!--</argument>-->
+                <!--<argument name="actions" xsi:type="array">-->
+                    <!--<item name="0" xsi:type="array">-->
+                        <!--<item name="type" xsi:type="string">enable</item>-->
+                        <!--<item name="label" xsi:type="string" translate="true">Allow</item>-->
+                        <!--<item name="url" xsi:type="url" path="magebit/productcomments/massstatus">-->
+                            <!--<param name="status">1</param>-->
+                        <!--</item>-->
+                    <!--</item>-->
+                    <!--<item name="1" xsi:type="array">-->
+                        <!--<item name="type" xsi:type="string">disable</item>-->
+                        <!--<item name="label" xsi:type="string" translate="true">Not Allow</item>-->
+                        <!--<item name="url" xsi:type="url" path="magebit/productcomments/massstatus">-->
+                            <!--<param name="status">0</param>-->
+                        <!--</item>-->
+                    <!--</item>-->
+                <!--</argument>-->
+            <!--</action>-->
+        </massaction>
     </listingToolbar>
 
     <columns name="magebit_productcomments_index_columns">
