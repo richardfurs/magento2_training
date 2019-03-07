@@ -13,8 +13,11 @@ use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\TestFramework\Inspection\Exception;
 
+
+
 class Save extends \Magento\Backend\App\Action
 {
+    protected $_productRepository;
     /**
      * @var DataPersistorInterface
      */
@@ -27,11 +30,14 @@ class Save extends \Magento\Backend\App\Action
     public function __construct(
         Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
-        DataPersistorInterface $dataPersistor
+        DataPersistorInterface $dataPersistor,
+        \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
     ) {
         parent::__construct($context);
+        $this->_productRepository = $productRepository;
         $this->coreRegistry = $coreRegistry;
         $this->dataPersistor = $dataPersistor;
+
     }
 
     /**
@@ -42,6 +48,8 @@ class Save extends \Magento\Backend\App\Action
      */
     public function execute()
     {
+        $productId = $this->getRequest()->getPostValue('product_id');
+
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
@@ -55,6 +63,14 @@ class Save extends \Magento\Backend\App\Action
 
             /** @var \Magento\Cms\Model\Block $model */
             $model = $this->_objectManager->create('Magebit\ProductComments\Model\Post')->load($id);
+
+            try {
+                $this->_productRepository
+                    ->getById($productId);
+            } catch (\Exception $e) {
+                $this->messageManager->addException($e, __('No such product ID!'));
+                return $resultRedirect->setPath('*/*/edit', ['comment_id' => $model->getId()]);
+            }
 
 
 
