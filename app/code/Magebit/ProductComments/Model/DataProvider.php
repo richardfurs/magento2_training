@@ -54,6 +54,8 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
         foreach ($items as $model) {
             $this->loadedData[$model->getId()] = $model->getData();
+
+            $this->loadedData[$model->getId()]['hide_it'] = false;
         }
 
         return $this->loadedData;

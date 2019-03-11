@@ -8,6 +8,9 @@
                 magebit_productcomments_index_listing.magebit_productcomments_index_listing_data_source
             </item>
         </item>
+        <item name="buttons" xsi:type="array">
+            <item name="new_comment" xsi:type="string">Magebit\ProductComments\Block\Adminhtml\Category\Edit\NewCommentButton</item>
+        </item>
     </argument>
 
     <settings>

@@ -42,7 +42,6 @@ class Edit extends \Magento\Backend\App\Action
     public function execute()
     {
         $id = $this->getRequest()->getParam('comment_id');
-//        var_dump($id);exit;
 
         $model = $this->post;
 

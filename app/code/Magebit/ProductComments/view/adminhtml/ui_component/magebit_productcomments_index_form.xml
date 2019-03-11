@@ -55,20 +55,36 @@
         <field name="comment_name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="imports" xsi:type="array">
+                        <item name="disabled" xsi:type="string">${ $.provider }:data.hide_it</item>
+                    </item>
+                    <item name="disabled" xsi:type="string">true</item>
+                    <item name="class" xsi:type="string">Magebit\ProductComments\Ui\Component\Form\Element\CommentName</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Customer Name</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="dataScope" xsi:type="string">comment_name</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="letters-only" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>
         <field name="comment_email">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="imports" xsi:type="array">
+                        <item name="disabled" xsi:type="string">${ $.provider }:data.hide_it</item>
+                    </item>
+                    <item name="disabled" xsi:type="string">true</item>
+                    <item name="class" xsi:type="string">Magebit\ProductComments\Ui\Component\Form\Element\CommentEmail</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Customer Email</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="dataScope" xsi:type="string">comment_email</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-email" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>
@@ -79,20 +95,12 @@
                     <item name="label" xsi:type="string" translate="true">Comment</item>
                     <item name="formElement" xsi:type="string">textarea</item>
                     <item name="dataScope" xsi:type="string">comment_text</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-no-empty" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>
-        <!--<field name="comment_id">-->
-            <!--<argument name="data" xsi:type="array">-->
-                <!--<item name="config" xsi:type="array">-->
-                    <!--<item name="visible" xsi:type="boolean">false</item>-->
-                    <!--<item name="dataType" xsi:type="string">text</item>-->
-                    <!--<item name="label" xsi:type="string" translate="true">Comment ID</item>-->
-                    <!--<item name="formElement" xsi:type="string">input</item>-->
-                    <!--<item name="dataScope" xsi:type="string">comment_id</item>-->
-                <!--</item>-->
-            <!--</argument>-->
-        <!--</field>-->
 
         <field name="status" sortOrder="10" formElement="checkbox">
             <argument name="data" xsi:type="array">
