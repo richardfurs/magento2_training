@@ -32,6 +32,7 @@ class Index extends \Magento\Backend\App\Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__("Product Comments"));
 
+        $this->_setActiveMenu('Magebit_ProductComments::Magebit');
 
         return $resultPage;
     }
