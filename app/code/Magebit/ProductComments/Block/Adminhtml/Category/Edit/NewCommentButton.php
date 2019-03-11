@@ -17,7 +17,6 @@ class NewCommentButton extends GenericButton  implements ButtonProviderInterface
      */
     public function getButtonData()
     {
-//        var_dump($this->getUrl('magebit/productcomments/newcomment'));exit;
         return [
             'label' => __('New Comment'),
             'class' => 'save primary',

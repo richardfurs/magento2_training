@@ -63,8 +63,8 @@ class Edit extends \Magento\Backend\App\Action
         $breadcrumb = $id ? __('Edit Comment') : __('New Comment');
         $resultPage->addBreadcrumb(__($breadcrumb), __($breadcrumb));
         // Browser tab name
-        $resultPage->getConfig()->getTitle()->prepend(__('Comments'));
-        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getTitle() : __('New Comment'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Edit Comment'));
+//        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getTitle() : __('New Comment'));
 
         return $resultPage;
     }
